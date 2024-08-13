@@ -1,0 +1,44 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sock-shop
+  namespace: sock-shop
+  annotations: 
+    kubernetes.io/ingres.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: myshop.site.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /front-end
+            backend:
+              service:
+                name: front-end
+                port:
+                  number: 80
+
+    - host: sour.myshop.site.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /grafana
+            backend:
+              service:
+                name: prometheus-grafana
+                port:
+                  number: 80
+
+    - host: lone.myshop.site.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /prometheus
+            backend:
+              service:
+                name: prometheus-kube-prometheus-prometheus
+                port:
+                  number: 9093
+
