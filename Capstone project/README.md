@@ -30,8 +30,16 @@ Tasks:
 
    ![alert](./img/alertman.jpg)
 
+* Accessing through load balancer
+
+   ![sock](./img/sock.png)
+
 * Monitoring Grafana
 
+   ![gra](./img/grafana.png)
+
 * Logging Prometheus
+
+   ![prom](./img/prometheus.png)
 
 [subscribe](https://www.youtube.com/@SaintNaki)
